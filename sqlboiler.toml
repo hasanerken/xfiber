@@ -1,0 +1,16 @@
+output   = "dbModels"
+wipe     = true
+no-tests = true
+pkgname = "dbmodels"
+add-global-variants = true
+add-enum-types = true
+
+[psql]
+dbname = "postgres"
+host   = "db.ewnawqxvstvxofhxqrif.supabase.co"
+port   = 5432
+user   = "postgres"
+pass   = "EBFE1EhMtT0LPVdU"
+schema = "public"
+sslmode = "disable"
+blacklist = ["migrations", "other"]
