@@ -7,6 +7,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"log"
+	"os"
 	dbmodels "xfiber/dbModels"
 	"xfiber/storage"
 )
@@ -46,5 +47,16 @@ func main() {
 	})
 
 	// Start server on http://localhost:3000
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(getPort()))
+}
+
+func getPort() string {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = ":3000"
+	} else {
+		port = ":" + port
+	}
+
+	return port
 }
